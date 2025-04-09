@@ -7,9 +7,10 @@ class HabitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
         fields = "__all__"
+        read_only_fields = ('user',)
 
     def validate(self, data):
-        instance = Habit(**data)
+        instance = Habit(**data, user=self.context['request'].user)
         validate_duration(instance)
         validate_related_habit(instance)
         validate_pleasant_habit(instance)
