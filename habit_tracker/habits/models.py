@@ -1,8 +1,11 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
+from django.conf import settings
+from django.contrib.auth.models import AbstractUser
 
-User = get_user_model()
+class User(AbstractUser):
+    telegram_chat_id = models.CharField(max_length=50, blank=True, null=True)
 
 class Habit(models.Model):
     PERIOD_CHOICES = (
@@ -37,5 +40,9 @@ class Habit(models.Model):
         ordering = ["time"]
 
 
+
+class TelegramUser(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    chat_id = models.CharField(max_length=100, unique=True)
 
 

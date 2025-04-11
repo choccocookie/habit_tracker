@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Удалить привычку{% endblock %}
+
+{% block content %}
+    <h2>Вы уверены, что хотите удалить эту привычку?</h2>
+    <p><strong>{{ habit.action }}</strong> в {{ habit.time }} в {{ habit.place }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'habit_list' %}" class="btn btn-secondary">Отменить</a>
+    </form>
+{% endblock %}

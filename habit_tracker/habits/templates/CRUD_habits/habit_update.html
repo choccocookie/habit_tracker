@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Редактировать привычку{% endblock %}
+
+{% block content %}
+    <h2>Редактировать привычку</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="action">Действие</label>
+            <input type="text" id="action" name="action" class="form-control" value="{{ habit.action }}" required>
+        </div>
+        <div class="form-group">
+            <label for="time">Время</label>
+            <input type="text" id="time" name="time" class="form-control" value="{{ habit.time }}" required>
+        </div>
+        <div class="form-group">
+            <label for="place">Место</label>
+            <input type="text" id="place" name="place" class="form-control" value="{{ habit.place }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+    </form>
+{% endblock %}

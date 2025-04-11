@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import HabitCreateAPIView, HabitListAPIView, HabitRetriveAPIView, HabitUpdateAPIView, HabitDestroyAPIView
+from . import views_html
 
 urlpatterns = [
     path('habits/', HabitListAPIView.as_view(), name='habit-list'),

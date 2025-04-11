@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Список привычек{% endblock %}
+
+{% block content %}
+    <h2>Список привычек</h2>
+    <ul class="list-group">
+        {% for habit in habits %}
+            <li class="list-group-item">
+                <strong>{{ habit.action }}</strong> в {{ habit.time }} в {{ habit.place }}
+                <a href="{% url 'habit_update' habit.id %}" class="btn btn-warning btn-sm ml-2">Изменить</a>
+                <a href="{% url 'habit_delete' habit.id %}" class="btn btn-danger btn-sm ml-2">Удалить</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Нет привычек.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
