@@ -2,6 +2,7 @@ from pathlib import Path
 import environ
 import os
 from decouple import config, Csv
+from datetime import timedelta
 from celery.schedules import crontab
 
 
@@ -150,8 +151,8 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 CELERY_BEAT_SCHEDULE = {
     'send_daily_reminder': {
-        'task': 'habits.tasks.send_reminder',
-        'schedule': crontab(minute=0, hour=9),  # каждый день в 9 утра
-        'args': ('user_id', 'Напоминание: пора выполнить привычку! ✅'),
-    },
+        'task': 'habits.tasks.send_habit_reminder',
+        'schedule': timedelta(minutes=10),  # через каждые 10 минут
+
+        },
 }

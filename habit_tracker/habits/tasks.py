@@ -9,7 +9,7 @@ TELEGRAM_TOKEN = settings.TELEGRAM_BOT_TOKEN
 @shared_task
 def send_habit_reminder():
     now = timezone.now().time()  # получаем текущее время
-    habits = Habit.objects.filter(time__lte=now, completed=False)  # находим привычки, для которых время пришло
+    habits = Habit.objects.filter(time__lte=now)  # находим привычки, для которых время пришло
 
     for habit in habits:
         # Отправляем сообщение пользователю

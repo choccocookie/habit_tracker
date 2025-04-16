@@ -3,9 +3,14 @@ import requests
 from django.conf import settings
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext, Application
-import os
 from datetime import datetime
 from habit_tracker.habits.models import Habit
+
+
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
+
 
 TELEGRAM_TOKEN = "7641127950:AAFt4ri4sSx33XvrdTGSRs5qWsEl1nSHI2k"
 
