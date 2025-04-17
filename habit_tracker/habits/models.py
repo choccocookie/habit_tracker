@@ -3,9 +3,8 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
+from Users.models import User
 
-class User(AbstractUser):
-    telegram_chat_id = models.CharField(max_length=50, blank=True, null=True)
 
 class Habit(models.Model):
     PERIOD_CHOICES = (

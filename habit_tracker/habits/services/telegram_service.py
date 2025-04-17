@@ -4,7 +4,9 @@ from django.conf import settings
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext, Application
 from datetime import datetime
-from habit_tracker.habits.models import Habit
+#from habit_tracker.habits.models import Habit
+from habits.models import Habit
+
 
 
 import sys

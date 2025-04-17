@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
 
     'habits',
+    'Users',
 
 ]
 
@@ -152,7 +153,9 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_BEAT_SCHEDULE = {
     'send_daily_reminder': {
         'task': 'habits.tasks.send_habit_reminder',
-        'schedule': timedelta(minutes=10),  # через каждые 10 минут
+        'schedule': timedelta(minutes=1),  # через каждые 10 минут
 
         },
 }
+
+AUTH_USER_MODEL = 'Users.User'
