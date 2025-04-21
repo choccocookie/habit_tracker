@@ -3,7 +3,6 @@ import environ
 import os
 from decouple import config, Csv
 from datetime import timedelta
-from celery.schedules import crontab
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,10 +21,6 @@ TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_TOKEN')
 
 ALLOWED_HOSTS = []
 
-
-
-
-# Application definition
 
 INSTALLED_APPS = [
     "django.contrib.admin",

@@ -49,12 +49,16 @@ class HabitModelTest(TestCase):
             habit2.full_clean()  # Вызовет ошибку, так как это приятная привычка
 
     def test_non_pleasant_habit_with_related_habit_and_reward(self):
-        """Тест на то, что полезная привычка не может иметь и вознаграждение, и связанную привычку"""
+        """Тест на то, что полезная привычка
+        не может иметь и вознаграждение, и связанную привычку"""
         habit1 = Habit.objects.create(**self.habit_data)
-        habit2 = Habit.objects.create(**self.habit_data, is_pleasant=False, reward="Reward", related_habit=habit1)
+        habit2 = Habit.objects.create(**self.habit_data, is_pleasant=False,
+                                      reward="Reward", related_habit=habit1)
 
         with self.assertRaises(ValidationError):
-            habit2.full_clean()  # Ошибка, так как полезная привычка не может иметь и вознаграждение, и связанную привычку
+            habit2.full_clean()
+            # Ошибка, так как полезная привычка не может
+            # иметь и вознаграждение, и связанную привычку
 
     def test_execution_time_validation(self):
         """Тест на валидацию времени выполнения привычки (не более 2 минут)"""
@@ -74,7 +78,8 @@ class HabitModelTest(TestCase):
         """Тест на валидацию для полезной привычки, у которой может быть связанная привычка"""
         habit1 = Habit.objects.create(**self.habit_data)
         habit2 = Habit.objects.create(**self.habit_data, is_pleasant=False, related_habit=habit1)
-        self.assertEqual(habit2.related_habit, habit1)  # Всё работает нормально для полезных привычек
+        self.assertEqual(habit2.related_habit, habit1)
+        # Всё работает нормально для полезных привычек
 
     def test_habit_str_method(self):
         """Тест на строковое представление привычки"""

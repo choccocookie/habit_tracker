@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 
 
-
 class CustomUserManager(BaseUserManager):
     """Менеджер для кастомного пользователя"""
 
@@ -26,6 +25,7 @@ class CustomUserManager(BaseUserManager):
             raise ValueError("Суперпользователь должен иметь is_superuser=True.")
 
         return self.create_user(email, password, **extra_fields)
+
 
 class User(AbstractUser):
     username = None

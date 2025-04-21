@@ -6,14 +6,18 @@ def validate_pleasant_habit(instance):
     Приятная привычка не может иметь вознаграждение или связанную привычку.
     """
     if instance.is_pleasant and (instance.reward or instance.related_habit):
-        raise ValidationError("Приятная привычка не может иметь вознаграждение или связанную привычку.")
+        raise ValidationError("Приятная привычка не может иметь "
+                              "вознаграждение или связанную привычку.")
+
 
 def validate_related_habit(instance):
     """
     У полезной привычки может быть либо вознаграждение, либо приятная связанная привычка.
     """
     if not instance.is_pleasant and instance.reward and instance.related_habit:
-        raise ValidationError("У полезной привычки не может быть и вознаграждения, и связанной приятной привычки одновременно.")
+        raise ValidationError("У полезной привычки не может быть и вознаграждения, "
+                              "и связанной приятной привычки одновременно.")
+
 
 def validate_duration(instance):
     """
@@ -29,6 +33,7 @@ def validate_related_habit_is_pleasant(instance):
     """
     if instance.related_habit and not instance.related_habit.is_pleasant:
         raise ValidationError("Связанная привычка должна быть приятной.")
+
 
 def validate_periodicity(instance):
     """

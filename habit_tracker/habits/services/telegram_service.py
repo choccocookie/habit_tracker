@@ -1,16 +1,11 @@
-
 import requests
-from django.conf import settings
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext, Application
 from datetime import datetime
-#from habit_tracker.habits.models import Habit
 from habits.models import Habit
-
-
-
 import sys
 import os
+
 sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
 
 
@@ -35,8 +30,6 @@ async def add_habit(update: Update, context: CallbackContext):
     await update.message.reply_text(f"Привычка '{habit_name}' добавлена на {time_str}")
 
 
-
-
 def send_telegram_message(chat_id: str, message: str):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {
@@ -54,6 +47,6 @@ def main():
     application.add_handler(CommandHandler("add_habit", add_habit))
     application.run_polling()
 
+
 if __name__ == '__main__':
     main()
-

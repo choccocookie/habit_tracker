@@ -2,10 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Habit
 from .forms import HabitForm
 
+
 # Список привычек
 def habit_list(request):
     habits = Habit.objects.all()
     return render(request, 'CRUD_habits/habit_list.html', {'habits': habits})
+
 
 # Добавить привычку
 def habit_create(request):
@@ -18,6 +20,7 @@ def habit_create(request):
         form = HabitForm()
     return render(request, 'CRUD_habits/habit_create.html', {'form': form})
 
+
 # Изменить привычку
 def habit_update(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
@@ -29,6 +32,7 @@ def habit_update(request, pk):
     else:
         form = HabitForm(instance=habit)
     return render(request, 'CRUD_habits/habit_update.html', {'form': form, 'habit': habit})
+
 
 # Удалить привычку
 def habit_delete(request, pk):
