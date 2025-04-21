@@ -21,3 +21,18 @@ def validate_duration(instance):
     """
     if instance.execution_time > 2:
         raise ValidationError("Время на выполнение привычки не должно превышать 2 минуты.")
+
+
+def validate_related_habit_is_pleasant(instance):
+    """
+    Связанная привычка должна быть приятной.
+    """
+    if instance.related_habit and not instance.related_habit.is_pleasant:
+        raise ValidationError("Связанная привычка должна быть приятной.")
+
+def validate_periodicity(instance):
+    """
+    Периодичность привычки не может быть реже одного раза в 7 дней.
+    """
+    if instance.periodicity > 7:
+        raise ValidationError("Периодичность привычки не может быть реже одного раза в 7 дней.")
