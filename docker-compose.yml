@@ -3,7 +3,7 @@ version: "3.9"
 services:
   web:
     build: .
-    container_name: django_app
+    container_name: django_app_habit
     command: sh -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
@@ -30,7 +30,7 @@ services:
 
   db:
     image: postgres:15
-    container_name: postgres_db
+    container_name: postgres_db_redis
     environment:
       POSTGRES_DB: ${NAME}
       POSTGRES_USER: ${USER}
@@ -44,9 +44,31 @@ services:
 
   redis:
     image: redis:7
-    container_name: redis
+    container_name: redis_habit
     ports:
       - "6379:6379"
+
+  celery:
+    build: .
+    container_name: celery
+    command: celery -A config worker -l INFO
+    env_file:
+      - .env
+    depends_on:
+      - web
+      - db
+      - redis
+
+  celery_beat:
+    build: .
+    container_name: beat
+    command: celery -A config beat -l INFO
+    env_file:
+      - .env
+    depends_on:
+      - web
+      - db
+      - redis
 
 volumes:
   postgres_data:
