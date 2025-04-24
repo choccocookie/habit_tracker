@@ -1,6 +1,7 @@
 from pathlib import Path
 import environ
 import os
+import sys
 from decouple import config, Csv
 from datetime import timedelta
 
@@ -157,3 +158,11 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 AUTH_USER_MODEL = 'Users.User'
+
+if "test" in sys.argv:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
