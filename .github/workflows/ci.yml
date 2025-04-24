@@ -24,7 +24,7 @@ jobs:
     env:
       SECRET_KEY: ${{secrets.SECRET_KEY_DJANGO}}
       TELEGRAM_BOT_TOKEN: ${{secrets.TELEGRAM_BOT_TOKEN}}
-      ALLOWED_HOST: localhost
+      ALLOWED_HOSTS: localhost
       CORS_ALLOW_ALL_ORIGINS: True
     steps:
     - name: Check out code
