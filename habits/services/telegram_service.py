@@ -6,7 +6,7 @@ from habits.models import Habit
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../tracker'))
 
 
 TELEGRAM_TOKEN = "7641127950:AAFt4ri4sSx33XvrdTGSRs5qWsEl1nSHI2k"
