@@ -51,22 +51,20 @@ services:
   celery:
     build: .
     container_name: celery
-    command: celery -A config worker -l INFO
+    command: celery -A habit_tracker worker -l INFO
     env_file:
       - .env
     depends_on:
-      - web
       - db
       - redis
 
   celery_beat:
     build: .
     container_name: beat
-    command: celery -A config beat -l INFO
+    command: celery -A habit_tracker beat -l INFO
     env_file:
       - .env
     depends_on:
-      - web
       - db
       - redis
 
