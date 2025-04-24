@@ -160,6 +160,7 @@ CELERY_BEAT_SCHEDULE = {
 AUTH_USER_MODEL = 'Users.User'
 
 if "test" in sys.argv:
+    print("⚠️ Используется SQLite для тестов")
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
