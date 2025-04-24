@@ -1,0 +1,44 @@
+[run]
+source = '.'
+omit =
+    *celery.py*
+    *tests*
+    *apps.py
+    *manage.py
+    *__init__.py
+    *migrations*
+    *asgi*
+    *wsgi*
+    *admin.py
+    *urls.py
+    */settings/*
+
+    *tasks.py*
+    *telegram_service.py*
+    *main.py*
+
+
+[report]
+omit =
+    *celery.py*
+    *tests*
+    *apps.py
+    *manage.py
+    *__init__.py
+    *migrations*
+    *asgi*
+    *wsgi*
+    *admin.py
+    *urls.py
+    */settings/*
+    *createadmin.py*
+    *tasks.py*
+    *main.py*
+    *views_html.py*
+    *telegram_service.py*
+
+
+
+fail_under = 80
+show_missing = True
+skip_covered = False

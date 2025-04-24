@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Habit
 from .serializers import HabitSerializer
 from rest_framework.exceptions import PermissionDenied
+from .paginators import Five
 
 
 class HabitCreateAPIView(CreateAPIView):
@@ -21,6 +22,7 @@ class HabitListAPIView(ListAPIView):
     """Список привычек текущего пользователя"""
     serializer_class = HabitSerializer
     permission_classes = [IsAuthenticated]
+    pagination_class = Five
 
     def get_queryset(self):
         # Показываем только свои привычки и публичные
