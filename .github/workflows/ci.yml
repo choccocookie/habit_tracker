@@ -23,6 +23,7 @@ jobs:
     needs: lint
     env:
       SECRET_KEY: ${{secrets.SECRET_KEY_DJANGO}}
+      TELEGRAM_BOT_TOKEN: ${{secrets.TELEGRAM_BOT_TOKEN}}
     steps:
     - name: Check out code
       uses: actions/checkout@v3
