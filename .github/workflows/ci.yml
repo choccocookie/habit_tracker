@@ -59,6 +59,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Check PostgreSQL connection
+      run: | 
+        pg_isready -h localhost -p 5432 -U postgres
+
     - name: Run migrations
       run: python manage.py migrate
 
