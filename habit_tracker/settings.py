@@ -1,6 +1,7 @@
 from pathlib import Path
 import environ
 import os
+import sys
 from decouple import config
 from datetime import timedelta
 
@@ -9,6 +10,8 @@ ALLOWED_HOSTS = ['*']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+sys.path.append(os.path.join(BASE_DIR, "KDRF"))
 
 
 # Quick-start development settings - unsuitable for production
