@@ -33,8 +33,6 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'drf_yasg',
-
-
     'habits',
     'Users',
     'drf_spectacular',
