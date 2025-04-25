@@ -25,10 +25,10 @@ jobs:
       postgres:
         image: postgres
         env:
-          USER: postgres
-          PASSWORD: sky.pro
-          NAME: kr7
-          HOST: localhost
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: sky.pro
+          POSTGRES_DB: kr7
+          POSTGRES_HOST: localhost
         ports:
           - 5432:5432
     env:
