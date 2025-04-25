@@ -1,7 +1,6 @@
 from pathlib import Path
 import environ
 import os
-import sys
 from decouple import config
 from datetime import timedelta
 
@@ -9,10 +8,7 @@ from datetime import timedelta
 ALLOWED_HOSTS = ['*']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent
-
-sys.path.append(os.path.join(BASE_DIR, "KDRF"))
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
