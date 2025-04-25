@@ -29,7 +29,7 @@ services:
       - web
 
   db:
-    image: postgres
+    image: postgres:15
     container_name: postgres_db_redis
     env_file:
       - .env
@@ -39,7 +39,7 @@ services:
       - "5432:5432"
 
   redis:
-    image: redis
+    image: redis:7
     container_name: redis_habit
     ports:
       - "6379:6379"
