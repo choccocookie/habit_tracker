@@ -9,7 +9,7 @@ from datetime import timedelta
 ALLOWED_HOSTS = ['*']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 
 sys.path.append(os.path.join(BASE_DIR, "KDRF"))
 
