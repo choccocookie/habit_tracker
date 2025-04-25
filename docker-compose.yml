@@ -32,7 +32,7 @@ services:
     image: postgres:15
     container_name: postgres_db_redis
     env_file:
-      - .env
+      - ./.env
     volumes:
       - postgres_data:/var/lib/postgresql/data
     expose:
