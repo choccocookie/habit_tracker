@@ -1,7 +1,6 @@
 from pathlib import Path
 import environ
 import os
-import sys
 from decouple import config
 from datetime import timedelta
 
@@ -154,12 +153,3 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 AUTH_USER_MODEL = 'Users.User'
-
-if "test" in sys.argv:
-    print("⚠️ Используется SQLite для тестов")
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
