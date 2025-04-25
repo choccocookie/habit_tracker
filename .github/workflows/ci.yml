@@ -107,8 +107,8 @@ jobs:
           cd ${{ secrets.DEPLOY_DIR }}
           git checkout docker
           git pull
-          docker compose down || true
-          docker compose up -d --build
+          sudo docker compose down || true
+          sudo docker compose up -d --build
           EOF
 
 #      - name: Copy project files to server
