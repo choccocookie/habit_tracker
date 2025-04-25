@@ -64,7 +64,7 @@ jobs:
         echo "PASSWORD=sky.pro" >> .env
         echo "NAME=kr7" >> .env
         echo "HOST=localhost" >> .env
-        echo "PORT=5432}" >> .env
+        echo "PORT=5432" >> .env
         echo "SECRET_KEY=${{ secrets.SECRET_KEY_DJANGO }}" >> .env
         echo "TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}" >> .env
 
