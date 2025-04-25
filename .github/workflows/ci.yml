@@ -33,6 +33,10 @@ jobs:
           - 5432:5432
     env:
       SECRET_KEY: ${{secrets.SECRET_KEY_DJANGO}}
+      TELEGRAM_BOT_TOKEN: ${{secrets.TELEGRAM_BOT_TOKEN}}
+      ALLOWED_HOSTS: localhost
+      CORS_ALLOW_ALL_ORIGINS: True
+      PORT: 5432
     steps:
     - name: Check out code
       uses: actions/checkout@v3
