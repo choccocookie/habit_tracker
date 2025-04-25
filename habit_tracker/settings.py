@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
 
     'habits',
-    'users',
+    'Users',
     'drf_spectacular',
 
 ]
@@ -155,4 +155,4 @@ CELERY_BEAT_SCHEDULE = {
         },
 }
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'Users.User'
