@@ -71,6 +71,9 @@ jobs:
     - name: Run migrations
       run: python manage.py migrate
 
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$GITHUB_WORKSPACE/KDRF" >> $GITHUB_ENV
+
     - name: Run tests
       run: python manage.py test
 
