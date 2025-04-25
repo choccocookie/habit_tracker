@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from Users.models import User
+from users.models import User
 
 
 class Habit(models.Model):

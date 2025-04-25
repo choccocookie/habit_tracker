@@ -1,6 +1,6 @@
 from rest_framework.test import APITestCase
 from rest_framework.exceptions import ValidationError
-from Users.models import User
+from users.models import User
 from habits.models import Habit
 from habits.serializers import HabitSerializer
 

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
 
     'habits',
-    'Users',
+    'users',
     'drf_spectacular',
 
 ]
